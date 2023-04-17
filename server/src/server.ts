@@ -1,14 +1,11 @@
-import express from 'express';
-const app = express();
 import mongoose from 'mongoose';
 import "dotenv/config";
-const port = 5000;
 
 import env from '../util/validateEnv';
+import app from '../app';
 
-app.get("/", (req,res) => {
-    res.send("Hello world");
-})
+const port = env.PORT;
+
 
 mongoose.connect(env.MONGO_DB_STRING)
     .then(() => {
